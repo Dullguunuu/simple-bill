@@ -8,7 +8,15 @@ import { useState } from 'react';
 function App() {
   const [productList, setProductList] = useState(data)
   const [inputText, setInputText] = useState("")
-  const [text, setText] = useState()
+  const [text, setText] = useState();
+  const [onOff, setOnOff] = useState(false)
+  let newArr = [];
+
+  data.map((e) => {
+    if (!newArr.includes(e.category)) {
+      newArr.push(e.category)
+    }
+  })
 
   function searchProduct() {
     const newArr = [];
@@ -17,7 +25,6 @@ function App() {
         newArr.push(e)
       }
       setProductList(newArr)
-
     })
   }
 
@@ -31,8 +38,10 @@ function App() {
     })
   }
 
+  console.log(onOff)
+
   function switchSearch() {
-    setProductList(data.filter((e) => e.inStock));
+    { onOff ? setProductList(data) : setProductList(data.filter(e => e.inStock)) }
   }
 
   return (
@@ -47,10 +56,13 @@ function App() {
       />
       <Switch
         switchSearch={switchSearch}
+        onOff={onOff}
+        setOnOff={setOnOff}
       />
       <Products
         productList={productList}
-        setProductList={setProductList} />
+        setProductList={setProductList}
+        newArr={newArr} />
     </div>
   );
 }

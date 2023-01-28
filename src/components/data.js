@@ -5,6 +5,8 @@ const data = [
     { id: 4, productName: "mince", inStock: true, price: 12.99, category: "meat" },
     { id: 5, productName: "mayonnaise", inStock: true, price: 3.99, category: "spreads" },
     { id: 6, productName: "premium Sauce", inStock: false, price: 13.99, category: "spreads" },
-]
+];
 
-export { data };
+const categories = ["vegetables", "breads", "meat", "spreads"]
+
+export { data, categories };

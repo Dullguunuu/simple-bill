@@ -9,7 +9,7 @@ export default function Search({ searchProduct, inputText, setInputText, text, s
                 value={text}
                 onChange={(e) => onChangeSearch(e.target.value)}
             />
-            <button className='searchBtn' onClick={searchProduct}><i class="bi bi-search"></i></button>
+            <button className='searchBtn' onClick={() => searchProduct()}><i class="bi bi-search"></i></button>
         </div >
     )
 }
